@@ -15,65 +15,69 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>Stamp Pixel</title> <style>
+    <title>Stamp Pixel</title>
+    <style>
         body {
             margin: 0;
             font-family: Arial;
             font-size: 17px;
             background-color: black;
             font-family: "Kanit", sans-serif;
+            /* เพิ่มรูปภาพพื้นหลังสำหรับอุปกรณ์มือถือ หรือเมื่อวิดีโอไม่โหลด */
+            background-image: url('GIY84IibIAEdD4D.jpg'); /* **สำคัญ: เปลี่ยนเป็นชื่อไฟล์รูปภาพของคุณ** */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* ทำให้พื้นหลังอยู่กับที่ */
         }
-        
+
         #myVideo {
             position: fixed;
             min-width: 100%;
             min-height: 100%;
             -webkit-filter: blur(5px);
-            -moz-filter: blur(5px);
-            -o-filter: blur(5px);
-            -ms-filter: blur(5px);
-            filter: blur(5px);
-            object-fit: cover; /* ทำให้วิดีโอครอบคลุมพื้นที่โดยไม่บิดเบี้ยว */
-            z-index: -1; /* ส่งวิดีโอไปอยู่ด้านหลังสุด เพื่อให้เนื้อหาอื่นแสดงทับได้ */
+            filter: blur(5px); /* ลบ filter ที่ซ้ำซ้อนออก */
+            object-fit: cover;
+            z-index: -1;
         }
-        
+
         .img-content {
             color: #fff;
             position: absolute !important;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%; /* เพิ่มเพื่อการจัดการขนาดที่ดีขึ้น */
-            max-width: 800px; /* จำกัดความกว้างสูงสุด */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* เพิ่มเงาข้อความให้อ่านง่ายขึ้น */
+            width: 90%;
+            max-width: 800px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
-        
+
         .ml13 {
             font-size: 3em;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 600;
             color: rgb(255, 255, 255);
-            margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
-            white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่โดยไม่จำเป็น */
+            margin-top: 20px;
+            white-space: nowrap;
         }
-        
+
         .ml13 .letter {
             display: inline-block;
             line-height: 1em;
         }
-        
+
         .content-social {
             position: fixed;
             bottom: 0;
             color: #f1f1f1;
             width: 100%;
             padding: 20px;
-            text-align: center; /* จัดให้อยู่ตรงกลาง */
-            background: rgba(0, 0, 0, 0.5); /* เพิ่มพื้นหลังโปร่งใส */
-            z-index: 1; /* ให้อยู่ด้านหน้าวิดีโอ */
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
-        
+
         .btn-check:focus+.btn,
         .btn:focus {
             outline: 0;
@@ -81,23 +85,29 @@
         }
 
         .txt-rotate .wrap {
-            color: #fff; /* สีข้อความหมุนเวียน */
-            font-size: 1.2em; /* ขนาดข้อความหมุนเวียน */
+            color: #fff;
+            font-size: 1.2em;
             font-weight: 500;
-            display: inline-block; /* แก้ไขปัญหาการแสดงผล */
+            display: inline-block;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            /* ซ่อนวิดีโอพื้นหลังบนอุปกรณ์มือถือและแท็บเล็ต */
+            #myVideo {
+                display: none;
+            }
+            /* body จะแสดง background-image แทน */
+
             .ml13 {
-                font-size: 2em; /* ลดขนาด font สำหรับมือถือ */
+                font-size: 2em;
                 letter-spacing: 0.05em;
             }
             .img-content img {
-                width: 150px; /* ลดขนาดรูปภาพสำหรับมือถือ */
+                width: 150px;
             }
             .txt-rotate .wrap {
-                font-size: 1em; /* ลดขนาดข้อความหมุนเวียนสำหรับมือถือ */
+                font-size: 1em;
             }
         }
 
@@ -133,11 +143,10 @@
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
         -webkit-animation-direction: normal, alternate;
-        animation-direction: normal, alternate;" src="https://scontent.futp2-1.fna.fbcdn.net/v/t39.30808-6/345917334_1906381453073693_3166492776839308255_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFZsX3V_t8DN4V9e-2W-G9uAfD6Ui8LomEB8PpSLwuiYcXotDgemY2OC0Zke1RzTY5O05FOTHUTgrhvYAIgNL2R&_nc_ohc=0uC1ZbvYrLYAX8n-dPb&_nc_oc=AQmsfuYpQ1Nvj27aSSp4R7QWDkFXjGoHACBE29qbKQYW3zL4I0g3-z89tjaBuEDfACU&_nc_ht=scontent.futp2-1.fna&oh=00_AfCa4CqRjG3MzsEBoJq8NHLQZqoNaUXLOveTK1eEmQP5GQ&oe=64CDB822" alt="">
-            <div>
+        animation-direction: normal, alternate;" src="" alt=""> <div>
                 <h1 class="ml13">
                     <span class="letter">Stamp Pixel's</span>
-                    <span class="letter">  </span>
+                    <span class="letter"> </span>
                     <span class="letter">All </span>
                     <span class="letter">Contacts</span>
                     <span class="letter"></span>
@@ -149,7 +158,7 @@
                     <hr style="width: 14%; height: 5px; margin-top: 10px; background-color: #fff;">
                 </center>
                 <div data-aos="fade-up" data-aos-delay="1000" data-aos-duration="500" class="aos-init aos-animate">
-                    <span class="txt-rotate" data-period="2000" data-rotate='[&quot;Stamp Pixel | Github | Roblox Script | Cyber security, รับทำWeb Scraping |&quot;]'><span class="wrap"></span></span>
+                    <span class="txt-rotate" data-period="2000" data-rotate='["Stamp Pixel | Github | Roblox Script | Cyber security, รับทำWeb Scraping |"]'><span class="wrap"></span></span>
                 </div>
             </div>
         </div>
@@ -167,13 +176,12 @@
 
     <script>
         // **แก้ไข URL เสียงเมื่อคลิกได้ที่นี่ (บรรทัดที่ 101)**
-        // **โปรดทราบ: URL Discord สำหรับไฟล์เสียงนั้นมักจะหมดอายุ (temporary URL)**
-        // **คุณอาจต้องอัปโหลดไฟล์เสียงไปที่อื่น หรือใช้ CDN ที่ถาวรกว่า**
-        var audio = new Audio("https://cdn.discordapp.com/attachments/829630324838420500/1247076110978768916/your_audio.mp3?ex=666113b2&is=665fc232&hm=1240c1d6832e8d35e1654b455502213e8498808770b16f2258837e2963162770&");
+        // **สำคัญ: เปลี่ยน Path ไฟล์เสียงให้ถูกต้องตามที่อัปโหลดในโฟลเดอร์ media**
+        var audio = new Audio("media/your_audio.mp3"); // **สำคัญ: เปลี่ยนเป็นชื่อไฟล์เสียงของคุณ**
         $("#body").click(function() {
             audio.play();
             audio.volume = 0.5; // ปรับระดับเสียง 0.0 (เงียบ) ถึง 1.0 (ดังสุด)
-        })
+        });
         AOS.init();
         var textWrapper = document.querySelector('.ml13 ');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter '>$&</span>");
@@ -189,7 +197,7 @@
                 easing: "easeOutExpo",
                 duration: 1400,
                 delay: (el, i) => 300 + 30 * i
-            })
+            });
         var TxtRotate = function(el, toRotate, period) {
             this.toRotate = toRotate;
             this.el = el;
@@ -214,17 +222,39 @@
 
             }
 
-            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>'; var that = this; var delta = 300 - Math.random() * 100; if (this.isDeleting) { delta /= 2; } if (!this.isDeleting && this.txt === fullTxt) { delta = this.period;
-                            this.isDeleting = true; } else if (this.isDeleting && this.txt === '') { this.isDeleting = false; this.loopNum++; delta = 500; } setTimeout(function() { that.tick(); }, delta); }; window.onload = function() { var elements = document.getElementsByClassName('txt-rotate');
-                            for (var i = 0; i
-                            < elements.length; i++) { var toRotate=elements[i].getAttribute( 'data-rotate'); var period=elements[i].getAttribute( 'data-period'); if (toRotate) { new TxtRotate(elements[i], JSON.parse(toRotate), period); } } var css=document.createElement( "style");
-                                css.type="text/css" ; css.innerHTML=".txt-rotate > .wrap { border-right: 0.08em solid #666 }" ; document.body.appendChild(css); }; </script>
-
-
-                        <style type="text/css">
-                            .txt-rotate>.wrap {
-                                border-right: 0.08em solid #666
-                            }
-                        </style>
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+            var that = this;
+            var delta = 300 - Math.random() * 100;
+            if (this.isDeleting) {
+                delta /= 2;
+            }
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+        window.onload = function() {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+            document.body.appendChild(css);
+        };
+    </script>
 </body>
+
 </html>
